@@ -70,7 +70,9 @@ router.get('/decrypt', (req, res) => {
             result: decryptedText,
         });
 
-    } else if (encryptedText != undefined) {
+    }
+    // if user didn't pass query parameter or pass empty strings in it
+    else if (!encryptedText) {
         res.status(400).json({
             status: "Bad request",
             msg: "please enter encryptedText query parameter",
@@ -78,7 +80,7 @@ router.get('/decrypt', (req, res) => {
     } else {
         res.status(400).json({
             status: "Bad request",
-            msg: "Encrypted Text is not valid.",
+            msg: "Encrypted text is not valid",
         });
     }
 });
