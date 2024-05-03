@@ -12,6 +12,9 @@ app.use('/api', router);
 app.use(cors()); // to resolve cors error
 
 app.use(json());
+app.get('/', (req, res) => {
+    res.send('Server is running');
+});
 
 app.listen(3000, () => {
     console.log(`Server Started at ${3000}`)
